@@ -10,6 +10,7 @@
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
+    "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
@@ -22,7 +23,44 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "react-app",
+    "rules": {
+      "indent": [
+        "error",
+        4,
+        {
+          "SwitchCase": 1
+        }
+      ],
+      "semi": [
+        "error",
+        "always"
+      ],
+      "comma-dangle": [
+        "error",
+        "never"
+      ],
+      "max-len": "off",
+      "camelcase": "off",
+      "react/jsx-indent": [
+        "warn",
+        4
+      ],
+      "react/forbid-prop-types": "off",
+      "react/jsx-indent-props": [
+        "warn",
+        4
+      ],
+      "object-curly-newline": "off",
+      "react/jsx-no-bind": "off",
+      "no-underscore-dangle": "off"
+    },
+    "globals": {
+      "document": true,
+      "window": true,
+      "describe": true,
+      "it": true
+    }
   },
   "browserslist": {
     "production": [
