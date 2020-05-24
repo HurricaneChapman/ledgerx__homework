@@ -1,0 +1,22 @@
+@use '../../scss-global/component-init' as *;
+
+.container {
+
+}
+
+.contractTable {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: rem(11px);
+    position: relative;
+    height: 100%;
+}
+
+.scrollingBody {
+    //overflow-y: auto;
+    //position: absolute;
+    //top: 0;
+    //bottom: 0;
+    //left: 0;
+    //right: 0;
+}

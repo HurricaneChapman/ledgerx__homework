@@ -1,0 +1,5 @@
+@use './scss-variables' as *;
+
+@function rem($size) {
+    @return $size / $base-font-size * 1rem;
+}

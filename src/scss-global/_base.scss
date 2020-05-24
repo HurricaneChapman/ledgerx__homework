@@ -1,0 +1,28 @@
+@use 'scss-variables' as *;
+
+html {
+    background: black;
+    min-height: 100%;
+    display: flex;
+    align-items: stretch;
+    font-size: $base-font-size; // explicitly establishes a base font size in pixels
+}
+
+body {
+    font-size: 100%; // makes the browser use relative units for future calculations. All rem units will be based on this, which in turn refers to the base font size.
+}
+
+body,
+body > div {
+    display: flex;
+    justify-content: stretch;
+    align-items: stretch;
+    flex: 1;
+    color: white;
+}
+
+main {
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+}
