@@ -1,5 +1,36 @@
 @use '../../scss-global/component-init' as *;
 
-.container {
-    color: white;
+tr.dateRow {
+    display: grid;
+    grid-template-columns: 100%;
+    transition: opacity .2s linear;
+
+    &:not(:first-child) {
+        border-top: rem(4px) solid $background-tertiary;
+    }
+
+    &Hidden {
+        opacity: 0;
+    }
+}
+
+thead tr.dateRow:not(:first-child) {
+    border-top: none;
+}
+
+.dateHeader {
+    background: var(--color3);
+    font-size: rem(14px);
+    font-weight: 400;
+    color: $date-header-text-color;
+    padding: rem(4px) rem(10px);
+    border-bottom: rem(1px) solid var(--color3);
+    text-shadow:  rem(1px) rem(1px) 0 var(--color4);
+}
+
+
+.dateLabel {
+    margin-left: rem(6px);
+    text-transform: uppercase;
+    font-size: rem(8px);
 }

@@ -1,22 +1,37 @@
 @use '../../scss-global/component-init' as *;
 
-.container {
+.contractRow {
 
 }
 
 .contractTable {
     border-collapse: collapse;
     width: 100%;
-    font-size: rem(11px);
+    letter-spacing: rem(.2px);
     position: relative;
     height: 100%;
+    font-size: rem(12px);
+    text-shadow: rem(1px) rem(1px) 0 $contract-text-shadow;
+
+    tr {
+        width: 100%;
+        display: grid;
+        grid-template-columns: rem(60px) rem(80px) rem(80px) rem(60px) rem(80px) rem(80px) rem(60px);
+    }
+}
+
+.tableHead {
+    position: relative;
+    display: block;
+    z-index: 1;
+    box-shadow: 0 rem(2px) rem(3px) $table-head-shadow;
 }
 
 .scrollingBody {
-    //overflow-y: auto;
-    //position: absolute;
-    //top: 0;
-    //bottom: 0;
-    //left: 0;
-    //right: 0;
+    overflow-y: auto;
+    position: absolute;
+    top: rem(74px);
+    bottom: 0;
+    left: 0;
+    right: 0;
 }

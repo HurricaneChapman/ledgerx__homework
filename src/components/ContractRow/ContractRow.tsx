@@ -1,12 +1,15 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import scss from './ContractRow.module.scss';
+import { currencyFormat, formatInterest } from "../../helper/formatters";
 import {booktop, contractsOfStrike} from "../../types";
+import {Link} from "react-router-dom";
 
 type Props = {
     row: contractsOfStrike,
     strike: number,
     call: booktop,
-    put: booktop
+    put: booktop,
+    dateString: string
 } & Partial<DefaultProps>
 
 type DefaultProps = Readonly<typeof defaultProps>;
@@ -15,30 +18,8 @@ const defaultProps = {
     className: '' as string
 };
 
-class ContractRow extends PureComponent<Props> {
+class ContractRow extends Component<Props> {
     static defaultProps = defaultProps;
-
-    static currencyFormat(amount:number, decimals: number = 2) {
-        if (!amount && amount !== 0) {
-            return amount;
-        }
-
-        let i = Math.abs(amount / 100 || 0).toFixed(decimals).toString();
-        let d = decimals ? i.slice(0 - (decimals + 1)) : '';
-        i = decimals ? i.slice(0, i.length - (decimals + 1)) : i;
-        let j = (i.length > 3) ? i.length % 3 : 0;
-
-        const output = `${j ? `${i.substr(0, j)},` : ''}${i.substr(j).replace(/(\d{3})(?=\d)/g, "$1,")}${d}`;
-        return output || '–';
-    }
-
-    static formatInterest(amount:number) {
-        if (amount < 1000) {
-            return amount || '–';
-        }
-        const output = amount > 10000 ? Math.round(amount / 1000) : Math.round(amount / 100) / 10;
-        return `${output}k`;
-    }
 
     render() {
         const {
@@ -47,39 +28,50 @@ class ContractRow extends PureComponent<Props> {
                 row,
                 strike,
                 call,
-                put
+                put,
+                dateString
             }
         } = this;
-
-        const $format = ContractRow.currencyFormat;
-        const formatOI = ContractRow.formatInterest;
+        const dateISO = new Date(parseInt(dateString)).toISOString(); // to make it slightly more human-readable
         const callBid = call && call.bid;
         const callAsk = call && call.ask;
         const putBid = put && put.bid;
         const putAsk = put && put.ask;
 
         return (
-            <tr className={`${scss.container} ${className}`}>
+            <tr className={`${scss.contractRow} ${className}`}>
                 <td className={`open-interest`}>
-                    {formatOI(row.call.open_interest)}
+                    <Link to={`/:${dateISO}/:${strike}/:call/:${row.call.id}`} title={'View Call contract details'}>
+                        {formatInterest(row.call.open_interest)}
+                    </Link>
                 </td>
                 <td>
-                    {$format(callBid)}
+                    <Link to={`/:${dateISO}/:${strike}/:call/:${row.call.id}`} title={'View Call contract details'}>
+                        {currencyFormat(callAsk)}
+                    </Link>
                 </td>
                 <td>
-                    {$format(callAsk)}
+                    <Link to={`/:${dateISO}/:${strike}/:call/:${row.call.id}`} title={'View Call contract details'}>
+                        {currencyFormat(callBid)}
+                    </Link>
+                </td>
+                <td className={scss.strikeCell}>
+                    {currencyFormat(strike, 0)}
                 </td>
                 <td>
-                    {$format(strike, 0)}
+                    <Link to={`/:${dateISO}/:${strike}/:put/:${row.put.id}`} title={'View Put contract details'}>
+                        {currencyFormat(putBid)}
+                    </Link>
                 </td>
                 <td>
-                    {$format(putAsk)}
-                </td>
-                <td>
-                    {$format(putBid)}
+                    <Link to={`/:${dateISO}/:${strike}/:put/:${row.put.id}`} title={'View Put contract details'}>
+                        {currencyFormat(putAsk)}
+                    </Link>
                 </td>
                 <td className={`open-interest`}>
-                    {formatOI(row.put.open_interest)}
+                    <Link to={`/:${dateISO}/:${strike}/:put/:${row.put.id}`} title={'View Put contract details'}>
+                        {formatInterest(row.put.open_interest)}
+                    </Link>
                 </td>
             </tr>
         );

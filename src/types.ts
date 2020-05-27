@@ -10,7 +10,7 @@ export type contractRow = Record<number, contractsOfStrike>;
 export type contractsOfStrike = Record<string, contract>;
 
 // dictionary object type containing booktop lists, indexed by contract ID
-export type bookshelf = Record<string, LinkedList<booktop>>
+export type bookshelf = Record<number, LinkedList<booktop>>
 
 export type contract = {
     active: boolean,

@@ -10,6 +10,7 @@ html {
 
 body {
     font-size: 100%; // makes the browser use relative units for future calculations. All rem units will be based on this, which in turn refers to the base font size.
+    font-family: 'Lato', Helvetica, Arial, sans-serif;
 }
 
 body,
@@ -18,7 +19,7 @@ body > div {
     justify-content: stretch;
     align-items: stretch;
     flex: 1;
-    color: white;
+    color: ivory;
 }
 
 main {

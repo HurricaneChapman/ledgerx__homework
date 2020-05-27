@@ -1,5 +1,20 @@
-@use '../../scss-global/component-init';
+@use '../../scss-global/component-init' as *;
 
 .container {
-    color: red;
+    display: grid;
+    grid-template-columns: rem(30px) 33% 1fr 33% rem(30px);
+    grid-template-rows: rem(30px) 45% 1fr rem(30px);
+    grid-template-areas:
+        '.   .     .     .   .'
+        '. graph graph graph .'
+        '. details details details .'
+        '.   .     .     .   .';
+}
+
+.details {
+    grid-area: details;
+
+    &Header {
+        display: flex;
+    }
 }

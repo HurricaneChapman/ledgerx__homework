@@ -1,5 +1,6 @@
-@use '../../scss-global/component-init';
+@use '../../scss-global/component-init' as *;
 
 .container {
-    color: red;
+    grid-area: graph;
+    background: $background-primary;
 }

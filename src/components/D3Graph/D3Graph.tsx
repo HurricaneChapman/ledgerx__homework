@@ -1,7 +1,10 @@
 import React, { PureComponent } from 'react';
 import scss from './D3Graph.module.scss';
+import {LinkedList} from "linked-list-typescript";
+import {booktop} from "../../types";
 
 type Props = {
+    history: LinkedList<booktop> | undefined;
 } & Partial<DefaultProps>
 
 type DefaultProps = Readonly<typeof defaultProps>;
@@ -26,7 +29,7 @@ class D3Graph extends PureComponent<Props> {
 
         return (
             <Container className={`${scss.container} ${className}`}>
-
+                (graph)
             </Container>
         );
     }

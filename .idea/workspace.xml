@@ -2,34 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="72bc60af-024c-4741-ae2e-b0246c9ddf19" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/App.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ContractDateHeader/ContractDateHeader.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ContractDetailPane/ContractDetailPane.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ContractDetailPane/ContractDetailPane.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ContractRow/ContractRow.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ContractRow/ContractRow.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ContractSortHeader/ContractSortHeader.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ContractSortHeader/ContractsSortHeader.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ContractsByDate/ContractsByDate.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ContractsByDate/ContractsByDate.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/D3Graph/D3Graph.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/D3Graph/D3Graph.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scss-global/_base.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scss-global/_component-init.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scss-global/_css-variables.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scss-global/_helpers.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scss-global/_scss-variables.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/setupProxy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/helper/formatters.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Layout/Layout.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Layout/Layout.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scss/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ContractDateHeader/ContractDateHeader.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ContractDateHeader/ContractDateHeader.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ContractDateHeader/ContractDateHeader.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ContractDateHeader/ContractDateHeader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ContractDateHeader/ContractDateHeader.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ContractDetailPane/ContractDetailPane.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ContractDetailPane/ContractDetailPane.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ContractDetailPane/ContractDetailPane.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ContractDetailPane/ContractDetailPane.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ContractRow/ContractRow.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ContractRow/ContractRow.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ContractRow/ContractRow.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ContractRow/ContractRow.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ContractSortHeader/ContractSortHeader.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ContractSortHeader/ContractSortHeader.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ContractSortHeader/ContractsSortHeader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ContractSortHeader/ContractsSortHeader.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ContractsByDate/ContractsByDate.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ContractsByDate/ContractsByDate.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ContractsByDate/ContractsByDate.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ContractsByDate/ContractsByDate.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/D3Graph/D3Graph.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/D3Graph/D3Graph.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/D3Graph/D3Graph.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/D3Graph/D3Graph.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scss-global/_base.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/scss-global/_base.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scss-global/_css-variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/scss-global/_css-variables.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scss-global/_scss-variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/scss-global/_scss-variables.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/setupProxy.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/setupProxy.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,50 +37,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/ContractDetailPane/ContractDetailPane.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="14" column="28" lean-forward="true" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
+            <state relative-caret-position="429">
+              <caret line="42" column="175" selection-start-line="42" selection-start-column="175" selection-end-line="42" selection-end-column="175" />
               <folding>
                 <element signature="e#0#45#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/App.tsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="731">
-              <caret line="43" column="13" selection-start-line="36" selection-start-column="11" selection-end-line="43" selection-end-column="13" />
-              <folding>
-                <element signature="e#0#45#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/setupProxy.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="10" column="4" selection-start-line="10" selection-start-column="7" selection-end-line="16" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/package.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
-              <caret line="76" column="6" selection-start-line="76" selection-start-column="6" selection-end-line="76" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/ContractSortHeader/ContractsSortHeader.tsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="20">
-              <caret line="1" column="38" selection-start-line="1" selection-start-column="38" selection-end-line="1" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -93,8 +49,68 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/ContractDateHeader/ContractDateHeader.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
+            <state relative-caret-position="460">
+              <caret line="24" column="26" lean-forward="true" selection-start-line="24" selection-start-column="26" selection-end-line="24" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/ContractDetailPane/ContractDetailPane.module.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="45" lean-forward="true" selection-start-column="45" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/setupProxy.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="200">
+              <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/ContractsByDate/ContractsByDate.tsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="687">
+              <caret line="90" column="27" selection-start-line="90" selection-start-column="27" selection-end-line="90" selection-end-column="27" />
+              <folding>
+                <element signature="e#0#44#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/ContractRow/ContractRow.tsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1480">
+              <caret line="74" column="21" lean-forward="true" selection-start-line="74" selection-start-column="21" selection-end-line="74" selection-end-column="21" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/types.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="40">
+              <caret line="2" column="54" lean-forward="true" selection-start-line="2" selection-start-column="54" selection-end-line="2" selection-end-column="54" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/App.tsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="834">
+              <caret line="164" column="64" selection-start-line="164" selection-start-column="64" selection-end-line="164" selection-end-column="64" />
               <folding>
                 <element signature="e#0#45#0" expanded="true" />
               </folding>
@@ -105,41 +121,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/App.module.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="25" selection-start-column="25" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/ContractRow/ContractRow.tsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="40">
-              <caret line="2" column="55" selection-start-line="2" selection-start-column="55" selection-end-line="2" selection-end-column="55" />
-              <folding>
-                <element signature="e#0#45#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/ContractsByDate/ContractsByDate.tsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="860">
-              <caret line="43" column="61" lean-forward="true" selection-start-line="43" selection-start-column="61" selection-end-line="43" selection-end-column="61" />
-              <folding>
-                <element signature="e#0#45#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/ContractsByDate/ContractsByDate.module.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="15" column="4" selection-start-line="15" selection-start-column="6" selection-end-line="20" selection-end-column="15" />
+            <state relative-caret-position="480">
+              <caret line="24" column="14" lean-forward="true" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -153,6 +136,18 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>prox</find>
+      <find>proxy</find>
+      <find>open-interess</find>
+      <find>react-scri</find>
+      <find>console</find>
+    </findStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$/src</dir>
+    </dirStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -164,30 +159,35 @@
         <option value="$PROJECT_DIR$/src/components/Layout/Layout.tsx" />
         <option value="$PROJECT_DIR$/src/scss-global/_variables.scss" />
         <option value="$PROJECT_DIR$/src/scss-global/_helpers.scss" />
-        <option value="$PROJECT_DIR$/src/scss-global/_base.scss" />
         <option value="$PROJECT_DIR$/src/scss-global/_component-init.scss" />
         <option value="$PROJECT_DIR$/src/App.scss" />
-        <option value="$PROJECT_DIR$/src/components/ContractDetailPane/ContractDetailPane.module.scss" />
-        <option value="$PROJECT_DIR$/src/components/ContractSortHeader/ContractsSortHeader.tsx" />
         <option value="$PROJECT_DIR$/src/helpers/LinkedList.ts" />
-        <option value="$PROJECT_DIR$/src/types.ts" />
-        <option value="$PROJECT_DIR$/src/components/ContractDateHeader/ContractDateHeader.module.scss" />
-        <option value="$PROJECT_DIR$/src/scss-global/_scss-variables.scss" />
+        <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/src/scss-global/_css-variables.scss" />
-        <option value="$PROJECT_DIR$/src/App.module.scss" />
-        <option value="$PROJECT_DIR$/src/components/ContractRow/ContractRow.module.scss" />
+        <option value="$PROJECT_DIR$/src/components/ContractSortHeader/ContractSortHeader.module.scss" />
+        <option value="$PROJECT_DIR$/src/components/ContractSortHeader/ContractsSortHeader.tsx" />
+        <option value="$PROJECT_DIR$/src/scss-global/_scss-variables.scss" />
         <option value="$PROJECT_DIR$/src/components/ContractDateHeader/ContractDateHeader.tsx" />
+        <option value="$PROJECT_DIR$/src/components/ContractDateHeader/ContractDateHeader.module.scss" />
+        <option value="$PROJECT_DIR$/src/scss-global/_base.scss" />
+        <option value="$PROJECT_DIR$/src/components/ContractRow/ContractRow.module.scss" />
         <option value="$PROJECT_DIR$/src/components/ContractsByDate/ContractsByDate.module.scss" />
-        <option value="$PROJECT_DIR$/src/components/ContractRow/ContractRow.tsx" />
-        <option value="$PROJECT_DIR$/src/components/ContractDetailPane/ContractDetailPane.tsx" />
-        <option value="$PROJECT_DIR$/src/components/ContractsByDate/ContractsByDate.tsx" />
         <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/src/App.tsx" />
+        <option value="$PROJECT_DIR$/src/types.ts" />
+        <option value="$PROJECT_DIR$/src/components/D3Graph/D3Graph.tsx" />
+        <option value="$PROJECT_DIR$/src/components/D3Graph/D3Graph.module.scss" />
         <option value="$PROJECT_DIR$/src/setupProxy.js" />
+        <option value="$PROJECT_DIR$/src/components/ContractDetailPane/ContractDetailPane.module.scss" />
+        <option value="$PROJECT_DIR$/src/components/ContractsByDate/ContractsByDate.tsx" />
+        <option value="$PROJECT_DIR$/src/helper/formatters.ts" />
+        <option value="$PROJECT_DIR$/src/components/ContractDetailPane/ContractDetailPane.tsx" />
+        <option value="$PROJECT_DIR$/src/components/ContractRow/ContractRow.tsx" />
+        <option value="$PROJECT_DIR$/src/App.module.scss" />
+        <option value="$PROJECT_DIR$/src/App.tsx" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="1920" />
     <option name="y" value="23" />
     <option name="width" value="1828" />
@@ -209,23 +209,66 @@
             <path>
               <item name="ledgerx__homework" type="b2602c69:ProjectViewProjectNode" />
               <item name="ledgerx__homework" type="462c0819:PsiDirectoryNode" />
-              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ledgerx__homework" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ledgerx__homework" type="462c0819:PsiDirectoryNode" />
-              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
-              <item name="@types" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ledgerx__homework" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ledgerx__homework" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ledgerx__homework" type="b2602c69:ProjectViewProjectNode" />
               <item name="ledgerx__homework" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ledgerx__homework" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ledgerx__homework" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ledgerx__homework" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ledgerx__homework" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="ContractDateHeader" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ledgerx__homework" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ledgerx__homework" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="ContractDetailPane" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ledgerx__homework" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ledgerx__homework" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="ContractRow" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ledgerx__homework" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ledgerx__homework" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="ContractsByDate" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ledgerx__homework" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ledgerx__homework" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="ContractSortHeader" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ledgerx__homework" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ledgerx__homework" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="D3Graph" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ledgerx__homework" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ledgerx__homework" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="scss-global" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -245,18 +288,18 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.TypeScript" />
+    <property name="settings.editor.selected.configurable" value="database.data.views" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/Layout" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/components/D3Graph" />
       <recent name="$PROJECT_DIR$/src/components/ContractSortHeader" />
       <recent name="$PROJECT_DIR$/src/components/ContractsByDate" />
       <recent name="$PROJECT_DIR$/src/components/ContractRow" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/components/Layout" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -272,7 +315,7 @@
     </option>
   </component>
   <component name="SvnConfiguration">
-    <configuration />
+    <configuration>$USER_HOME$/.subversion</configuration>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -288,14 +331,14 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="59454000" />
+    <option name="totallyTimeSpent" value="114433000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1920" y="23" width="1828" height="1057" extended-state="0" />
+    <frame x="1920" y="23" width="1920" height="1129" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="npm" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.2681971" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.2550586" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
@@ -320,6 +363,9 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="LIMIT_HISTORY" value="false" />
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/config/webpack.config.js" />
     <entry file="file://$PROJECT_DIR$/src/components/Layout/Layout.module.scss" />
@@ -331,13 +377,6 @@
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="23" column="54" lean-forward="true" selection-start-line="23" selection-start-column="54" selection-end-line="23" selection-end-column="54" />
         </state>
       </provider>
     </entry>
@@ -357,55 +396,63 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/scss-global/_base.scss">
+    <entry file="file://$PROJECT_DIR$/src/helpers/LinkedList.ts" />
+    <entry file="file://$PROJECT_DIR$/node_modules/@datastructures/linked-list/index.ts" />
+    <entry file="file://$PROJECT_DIR$/node_modules/@datastructures/linked-list/src/index.ts" />
+    <entry file="file://$PROJECT_DIR$/node_modules/@types/websocket/index.d.ts" />
+    <entry file="file://$PROJECT_DIR$/src/fartssetupProxy.js" />
+    <entry file="file://$PROJECT_DIR$/node_modules/react-dev-utils/WebpackDevServerUtils.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="19" lean-forward="true" selection-start-column="19" selection-end-column="19" />
+        <state relative-caret-position="-66">
+          <caret line="358" column="9" selection-start-line="358" selection-start-column="9" selection-end-line="358" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/ContractDetailPane/ContractDetailPane.module.scss">
+    <entry file="file://$PROJECT_DIR$/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="5" />
+        <state relative-caret-position="200">
+          <caret line="12" column="163" selection-start-line="12" selection-start-column="163" selection-end-line="12" selection-end-column="163" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/D3Graph/D3Graph.module.scss">
+    <entry file="file://$PROJECT_DIR$/src/scss-global/_css-variables.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        <state relative-caret-position="160">
+          <caret line="8" column="26" lean-forward="true" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/ContractSortHeader/ContractSortHeader.module.scss">
+    <entry file="file://$PROJECT_DIR$/src/scss-global/_scss-variables.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="8" column="34" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/ContractDateHeader/ContractDateHeader.module.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="16" column="33" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/helpers/LinkedList.ts">
+    <entry file="file://$PROJECT_DIR$/src/components/ContractSortHeader/ContractSortHeader.module.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        <state relative-caret-position="400">
+          <caret line="20" column="18" lean-forward="true" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/@datastructures/linked-list/index.ts">
+    <entry file="file://$PROJECT_DIR$/src/components/ContractSortHeader/ContractsSortHeader.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/@datastructures/linked-list/src/index.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/types.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="2" column="30" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
+        <state relative-caret-position="941">
+          <caret line="57" column="16" selection-start-line="57" selection-start-column="16" selection-end-line="57" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#45#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -416,17 +463,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/scss-global/_css-variables.scss">
+    <entry file="file://$PROJECT_DIR$/src/scss-global/_base.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="8" column="38" lean-forward="true" selection-start-line="8" selection-start-column="38" selection-end-line="8" selection-end-column="38" />
+        <state relative-caret-position="320">
+          <caret line="16" column="12" lean-forward="true" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/scss-global/_scss-variables.scss">
+    <entry file="file://$PROJECT_DIR$/src/components/ContractRow/ContractRow.module.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" column="16" selection-start-line="3" selection-end-line="3" selection-end-column="16" />
+        <state relative-caret-position="398">
+          <caret line="24" column="41" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/ContractsByDate/ContractsByDate.module.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="12" column="25" lean-forward="true" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="23" column="29" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -437,108 +498,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/ContractRow/ContractRow.module.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/ContractDateHeader/ContractDateHeader.module.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="44" selection-start-column="44" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/ContractsByDate/ContractsByDate.module.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="15" column="4" selection-start-line="15" selection-start-column="6" selection-end-line="20" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/@types/websocket/index.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-10998">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/ContractRow/ContractRow.tsx">
+    <entry file="file://$PROJECT_DIR$/src/components/D3Graph/D3Graph.module.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="40">
-          <caret line="2" column="55" selection-start-line="2" selection-start-column="55" selection-end-line="2" selection-end-column="55" />
-          <folding>
-            <element signature="e#0#45#0" expanded="true" />
-          </folding>
+          <caret line="2" column="10" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.module.scss">
+    <entry file="file://$PROJECT_DIR$/src/components/D3Graph/D3Graph.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="25" selection-start-column="25" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/ContractDateHeader/ContractDateHeader.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#45#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/ContractsByDate/ContractsByDate.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="860">
-          <caret line="43" column="61" lean-forward="true" selection-start-line="43" selection-start-column="61" selection-end-line="43" selection-end-column="61" />
-          <folding>
-            <element signature="e#0#45#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/ContractSortHeader/ContractsSortHeader.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="1" column="38" selection-start-line="1" selection-start-column="38" selection-end-line="1" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/ContractDetailPane/ContractDetailPane.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="14" column="28" lean-forward="true" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#45#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fartssetupProxy.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="76" column="6" selection-start-line="76" selection-start-column="6" selection-end-line="76" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="43" column="13" selection-start-line="36" selection-start-column="11" selection-end-line="43" selection-end-column="13" />
+        <state relative-caret-position="160">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
           <folding>
             <element signature="e#0#45#0" expanded="true" />
           </folding>
@@ -548,7 +518,82 @@
     <entry file="file://$PROJECT_DIR$/src/setupProxy.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
-          <caret line="10" column="4" selection-start-line="10" selection-start-column="7" selection-end-line="16" selection-end-column="9" />
+          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/ContractsByDate/ContractsByDate.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="687">
+          <caret line="90" column="27" selection-start-line="90" selection-start-column="27" selection-end-line="90" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#44#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/types.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" column="54" lean-forward="true" selection-start-line="2" selection-start-column="54" selection-end-line="2" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/ContractRow/ContractRow.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1480">
+          <caret line="74" column="21" lean-forward="true" selection-start-line="74" selection-start-column="21" selection-end-line="74" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/helper/formatters.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="14" column="47" lean-forward="true" selection-start-line="14" selection-start-column="47" selection-end-line="14" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/ContractDateHeader/ContractDateHeader.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="24" column="26" lean-forward="true" selection-start-line="24" selection-start-column="26" selection-end-line="24" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/ContractDetailPane/ContractDetailPane.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="429">
+          <caret line="42" column="175" selection-start-line="42" selection-start-column="175" selection-end-line="42" selection-end-column="175" />
+          <folding>
+            <element signature="e#0#45#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/ContractDetailPane/ContractDetailPane.module.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="45" lean-forward="true" selection-start-column="45" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.module.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="24" column="14" lean-forward="true" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="834">
+          <caret line="164" column="64" selection-start-line="164" selection-start-column="64" selection-end-line="164" selection-end-column="64" />
+          <folding>
+            <element signature="e#0#45#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

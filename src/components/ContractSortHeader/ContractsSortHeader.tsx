@@ -1,14 +1,14 @@
 import React, { PureComponent } from 'react';
 import scss from './ContractSortHeader.module.scss';
+import ContractDateHeader from "../ContractDateHeader/ContractDateHeader";
 
 type Props = {
+    displayDate: string
 } & Partial<DefaultProps>
 
 type DefaultProps = Readonly<typeof defaultProps>;
 
 const defaultProps = {
-    className: '' as string,
-    as: 'div' as keyof React.ReactDOM
 };
 
 class ContractSortHeader extends PureComponent<Props> {
@@ -17,17 +17,46 @@ class ContractSortHeader extends PureComponent<Props> {
     render() {
         const {
             props: {
-                className,
-                as,
+                displayDate
             }
         } = this;
 
-        const Container: keyof React.ReactDOM = as || defaultProps.as; // a workaround for a perplexing typescript compile issue where the default prop value isn't being read.
-
         return (
-            <Container className={`${scss.container} ${className}`}>
-
-            </Container>
+            <>
+                <tr className={`${scss.optionTypesRow}`}>
+                    <th>
+                        Call options
+                    </th>
+                    <th className={scss.strike}></th>
+                    <th>
+                        Put options
+                    </th>
+                </tr>
+                <tr className={`${scss.headsRow}`}>
+                    <th className={scss.columnHead}>
+                        Open interest
+                    </th>
+                    <th className={scss.columnHead}>
+                        Ask
+                    </th>
+                    <th className={scss.columnHead}>
+                        Bid
+                    </th>
+                    <th className={`${scss.columnHead} ${scss.strike}`}>
+                        Strike
+                    </th>
+                    <th className={scss.columnHead}>
+                        Bid
+                    </th>
+                    <th className={scss.columnHead}>
+                        Ask
+                    </th>
+                    <th className={scss.columnHead}>
+                        Open interest
+                    </th>
+                </tr>
+                <ContractDateHeader date={displayDate}/>
+            </>
         );
     }
 }

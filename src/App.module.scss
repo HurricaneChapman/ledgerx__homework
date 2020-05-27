@@ -19,13 +19,15 @@
 .contractPanel {
     grid-area: contracts;
     background: $background-primary;
-    border-right: rem(1px) solid $background-tertiary;
+    border-right: rem(1px) solid $background-secondary;
 }
 
 .detailPanel {
     grid-area: details;
-    background: $background-secondary;
-    border-left: black;
+    background: $background-primary;
+    background: radial-gradient(ellipse at center, black 30%, $background-primary 80%, $background-secondary 100%);
+    border-left: rem(1px) solid $background-tertiary;
+    box-shadow: 0 0 rem(100px) $background-four inset;
 }
 
 .appFooter {
