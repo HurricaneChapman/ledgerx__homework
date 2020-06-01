@@ -12,26 +12,63 @@
     height: 100%;
     font-size: rem(12px);
     text-shadow: rem(1px) rem(1px) 0 $contract-text-shadow;
-
-    tr {
-        width: 100%;
-        display: grid;
-        grid-template-columns: rem(60px) rem(80px) rem(80px) rem(60px) rem(80px) rem(80px) rem(60px);
-    }
 }
 
 .tableHead {
     position: relative;
     display: block;
-    z-index: 1;
     box-shadow: 0 rem(2px) rem(3px) $table-head-shadow;
 }
 
 .scrollingBody {
     overflow-y: auto;
     position: absolute;
-    top: rem(74px);
+    top: rem(67px);
     bottom: 0;
     left: 0;
     right: 0;
+
+    tr:nth-child(2n+2) {
+        background: $background-four;
+    }
+
+    &::-webkit-scrollbar {
+        width: rem(10px);
+        height: rem(10px);
+    }
+
+    &::-webkit-scrollbar-track {
+        background: transparent;
+        box-shadow: inset 0 0 rem(3px) 0 black;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: $scrollbar-thumb-color;
+        border: rem(1px) solid $scrollbar-thumb-border;
+        border-radius: rem(10px);
+
+        &:hover {
+            background: $scrollbar-thumb-color-hover;
+        }
+    }
+}
+
+@media screen and (min-width: rem(769px)) and (max-width: rem(992px)) {
+    .contractTable {
+        font-size: rem(9.5px);
+        letter-spacing: .3px;
+    }
+}
+
+@media screen and (max-width: rem(768px)) {
+    .contractTable {
+        font-size: rem(12px);
+    }
+}
+
+@media screen and (max-width: rem(575px)) {
+    .contractTable {
+        font-size: rem(9.5px);
+        letter-spacing: .3px;
+    }
 }

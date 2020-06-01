@@ -1,17 +1,24 @@
-import React, { PureComponent } from 'react';
-import scss from './App.module.scss';
-import './App.scss';
+import React, {PureComponent, ReactNode} from 'react';
 import ContractDetailPane from "./components/ContractDetailPane/ContractDetailPane";
 import ContractsByDate from "./components/ContractsByDate/ContractsByDate";
-import {contractsByDate, contract, booktop, bookshelf} from "./types";
+import {contractsByDate, booktop, bookshelf, btcSwaps, btcExchange} from "./types";
 import { LinkedList } from 'linked-list-typescript';
 import {Route, Switch, BrowserRouter} from "react-router-dom";
+import scss from './App.module.scss';
+import './App.scss';
+import Loader from "./components/Loader/Loader";
+import AppHeader from "./components/AppHeader/AppHeader";
+import AppFooter from "./components/AppFooter/AppFooter";
+import Button from "./components/Button/Button";
 
 type AppState = {
     contracts: contractsByDate,
     booktops: Record<number, booktop>,
+    btcSwaps: btcSwaps,
     contractInit: boolean,
-    booktopInit: boolean
+    booktopInit: boolean,
+    btcExchange: btcExchange,
+    connection: 'healthy' | 'disconnected' | 'connecting' | 'stalled' | 'errors';
 };
 
 class App extends PureComponent<{}, AppState> {
@@ -26,7 +33,10 @@ class App extends PureComponent<{}, AppState> {
             contracts: {},
             booktops: {},
             contractInit: false,
-            booktopInit: false
+            booktopInit: false,
+            btcSwaps: {},
+            btcExchange: {ask: 0, bid: 0},
+            connection: "connecting"
         };
 
         this.bookshelf = {};
@@ -39,28 +49,13 @@ class App extends PureComponent<{}, AppState> {
         const bookHeadResponse = await fetch('/api/book-tops');
         this.contractPromise = contractResponse.json();
         this.bookHeadPromise = bookHeadResponse.json();
-        const { host } = window.location;
-        this.socket = new WebSocket(`wss://${host}/api/ws`);
-        this.socket.onopen = (event) => {
-            console.log('CONNECTED', event);
-        };
-        this.socket.onmessage = (event) => {
-            const newBooktop:booktop = JSON.parse(event.data);
-            if (newBooktop.type !== 'book_top') {
-                return;
-            }
-            this.processBookTops(newBooktop);
-        };
-        this.socket.onerror = (event) => {
-            console.error(event);
-        };
-        this.socket.onclose = (event) => {
-            console.log('DISCONNECTED', event)
-        };
+        this.connectWebSocket();
         this.contractPromise.then(
             response => {
+                const {contracts, swaps} = App.processInitialData(response.data);
                 this.setState({
-                    contracts: App.processInitialData(response.data),
+                    contracts: contracts,
+                    btcSwaps: swaps,
                     contractInit: true
                 });
             }
@@ -73,22 +68,59 @@ class App extends PureComponent<{}, AppState> {
         );
     }
 
-    static processInitialData(response: contract[]):contractsByDate {
-        const data:contractsByDate = {};
-        for (let i = 0; i < response.length; i++) {
-            if (response[i].derivative_type !== 'options_contract') {
-                // we only care about options contracts
-                continue;
-            }
-            const date:number = new Date(response[i].date_exercise).getTime();
-            const strike:number = response[i].strike_price;
-            const type:string = response[i].type;
-            data[date] = data[date] ? data[date] : data[date] = {};
-            data[date][strike] = data[date][strike] ? data[date][strike] : data[date][strike] = {};
-            const strikeObj = data[date][strike];
-            strikeObj[type] = response[i];
+    async connectWebSocket() {
+        this.setState({connection: 'connecting'});
+        const { host } = window.location;
+        if (this.socket) {
+            await this.disconnectWebSocket();
         }
-        return data;
+        this.socket = new WebSocket(`wss://${host}/api/ws`);
+        this.socket.onopen = () => {
+            this.setState({connection: "healthy"})
+        };
+        this.socket.onmessage = (event) => {
+            const newBooktop:booktop = JSON.parse(event.data);
+            if (newBooktop.type !== 'book_top') {
+                return;
+            }
+            this.processBookTops(newBooktop);
+            this.setState({connection: "healthy"});
+        };
+        this.socket.onerror = (event) => {
+            console.error(event);
+            this.setState({connection: "errors"})
+        };
+        this.socket.onclose = (event) => {
+            console.log('DISCONNECTED', event)
+        };
+    }
+
+    async disconnectWebSocket() {
+        this.socket && await this.socket.close();
+    }
+
+    static processInitialData(response: any[]) {
+        const contracts:contractsByDate = {};
+        const swaps:btcSwaps = {};
+        for (let i = 0; i < response.length; i++) {
+            switch (response[i].derivative_type) {
+                case 'options_contract':
+                    const date:number = new Date(response[i].date_exercise).getTime();
+                    const strike:number = response[i].strike_price;
+                    const type:string = response[i].type;
+                    contracts[date] = contracts[date] ? contracts[date] : contracts[date] = {};
+                    contracts[date][strike] = contracts[date][strike] ? contracts[date][strike] : contracts[date][strike] = {};
+                    const strikeObj = contracts[date][strike];
+                    strikeObj[type] = response[i];
+                break;
+                case 'day_ahead_swap':
+                    const id = response[i].id;
+                    swaps[id] = response[i];
+                break;
+                default:
+            }
+        }
+        return {contracts, swaps};
     }
 
     processBookTops(booktops: booktop[] | booktop): void {
@@ -105,15 +137,35 @@ class App extends PureComponent<{}, AppState> {
                 continue;
             }
 
+            // check first to see if this booktop refers to a btc swap
+            if (this.state.btcSwaps[bookArray[i].contract_id]){
+                //update BTC prices and continue
+                if (this.state.btcSwaps[bookArray[i].contract_id].active) {
+                    this.setState({btcExchange: {ask: bookArray[i].ask, bid:bookArray[i].bid}});
+                }
+                continue;
+            }
+
             const {
                 contract_id
             } = bookArray[i];
 
             if (!this.bookshelf[contract_id]) {
-                this.bookshelf[contract_id] = new LinkedList<booktop>(bookArray[i]);
+                this.bookshelf[contract_id] = {
+                    min: Math.min(bookArray[i].bid, bookArray[i].ask),
+                    max: Math.max(bookArray[i].bid, bookArray[i].ask),
+                    history: new LinkedList<booktop>(bookArray[i])
+                };
             }
             else {
-                this.bookshelf[contract_id].prepend(bookArray[i]);
+                const contract = this.bookshelf[contract_id];
+                contract.min = Math.min(contract.min, bookArray[i].bid, bookArray[i].ask);
+                contract.max = Math.max(contract.max, bookArray[i].bid, bookArray[i].ask);
+                contract.history.append(bookArray[i]);
+                if (contract.history.length > 400) {
+                    // limit the history to 400 datapoints
+                    contract.history.removeHead();
+                }
             }
 
             newState[contract_id] = bookArray[i];
@@ -122,24 +174,46 @@ class App extends PureComponent<{}, AppState> {
         this.setState({booktops: newState});
     }
 
+    showConnectionStatus():ReactNode {
+        const {
+            connection
+        } = this.state;
+
+        const connectionClass = scss[`connection${connection}`];
+        const connectButton = <Button className={scss.connectButton} wrapperClass={scss.connectButtonWrapper} label={'Reconnect'} onClick={this.connectWebSocket.bind(this)}/>;
+
+        return (
+            <div className={`${scss.connectionStatus} ${connectionClass}`}>
+                <p className={scss.connectionStatusText}>Connection status: <span>{connection}</span>{connection === 'disconnected' ? connectButton : ''}</p>
+            </div>
+        )
+    }
+
     render() {
         const {
             state: {
                 contracts,
-                booktops
+                booktops,
+                contractInit,
+                booktopInit,
+                btcExchange
             }
         } = this;
         return (
-            <main className={`dark-mode ${scss.mainContainer}`}>
+            <div className={`dark-mode ${scss.mainContainer}`}>
                 <BrowserRouter>
-                    <header className={`${scss.appHeader}`}>
-
-                    </header>
-                    <ContractsByDate className={scss.contractPanel} contracts={contracts} booktops={booktops} />
+                    <AppHeader className={`${scss.appHeader}`} />
+                    {
+                        contractInit && booktopInit?
+                            <ContractsByDate className={scss.contractPanel} contracts={contracts} booktops={booktops} btcExchange={btcExchange}/>
+                        :
+                            <div className={scss.contractPanel}>
+                                <Loader/>
+                            </div>
+                    }
                     <Switch>
                         <Route path={'/:dateISO/:strikeKey/:contractType/:contractId'}>
-                            {({match}) => {
-                                // let dateString = match?.params?.dateISO || null;
+                            {({match, history}) => {
                                 const contractId = match?.params.contractId.substring(1) || null;
                                 const contractType = match?.params.contractType.substring(1) || null;
                                 const date = new Date(match?.params.dateISO.substring(1)) || null;
@@ -147,17 +221,20 @@ class App extends PureComponent<{}, AppState> {
                                 const booktop = booktops[parseInt(contractId)];
 
                                 return !contractId || !contractType || !date || !strikeKey || !booktop || !this.state.contractInit ?
-                                    <div className={scss.detailPanel} /> //return loader
+                                    <div className={scss.detailPanel}>
+                                        <Loader/>
+                                    </div>
                                     :
                                     <ContractDetailPane
-                                        className={scss.detailPanel}
                                         as={'aside'}
                                         booktop={booktop}
-                                        history={ contractId && this.bookshelf[contractId] }
+                                        contractHistory={ contractId && this.bookshelf[contractId] }
                                         openInterest={contracts[date.getTime()][strikeKey][contractType].open_interest}
                                         date={date}
                                         strike={strikeKey}
                                         contractType={contractType}
+                                        routerHistory={history}
+                                        btcExchange={btcExchange}
                                     />
                                 }}
                         </Route>
@@ -165,8 +242,11 @@ class App extends PureComponent<{}, AppState> {
                             <div className={scss.detailPanel} />
                         </Route>
                     </Switch>
+                    <AppFooter className={scss.appFooter}>
+                        {this.showConnectionStatus()}
+                    </AppFooter>
                 </BrowserRouter>
-            </main>
+            </div>
         );
     }
 }

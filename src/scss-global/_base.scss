@@ -16,10 +16,13 @@ body {
 body,
 body > div {
     display: flex;
+    flex-flow: column nowrap;
     justify-content: stretch;
     align-items: stretch;
     flex: 1;
     color: ivory;
+    width: 100%;
+    overflow: hidden;
 }
 
 main {

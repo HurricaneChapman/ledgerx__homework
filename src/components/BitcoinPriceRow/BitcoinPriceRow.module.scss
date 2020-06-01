@@ -1,0 +1,70 @@
+@use '../../scss-global/component-init' as *;
+
+.bitcoinRow {
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: .75fr 1fr 1fr rem(60px) 1fr 1fr .75fr;
+
+    td {
+        grid-column: 1/8;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        height: rem(2px);
+        left: 0;
+        right: 0;
+        top: 50%;
+        background: radial-gradient(ellipse at center, $date-header-background-color 50%, transparent 90%);
+        transform: translateY(#{rem(-1px)});
+    }
+}
+
+.text {
+    display: inline-block;
+    font-size: rem(7px);
+    line-height: 1.1;
+    text-shadow: none;
+    text-transform: uppercase;
+    opacity: .8;
+    position: relative;
+    top: rem(-2.5px);
+    margin: 0 5px;
+}
+
+.price {
+    font-size: rem(15px);
+
+    &Container {
+        display: inline-block;
+        position: relative;
+        height: rem(20px);
+        padding: 0 rem(50px);
+        background: $date-header-background-color;
+
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            left: rem(-10px);
+            top: 0;
+            bottom: 0;
+            width: 0;
+            height: 0;
+            border-top: rem(10px) solid transparent;
+            border-bottom: rem(10px) solid transparent;
+            border-right: rem(10px) solid $date-header-background-color;
+        }
+
+        &::after {
+            left: auto;
+            right: rem(-10px);
+            transform: rotate(180deg);
+        }
+    }
+}

@@ -47,12 +47,12 @@ class ContractRow extends Component<Props> {
                 </td>
                 <td>
                     <Link to={`/:${dateISO}/:${strike}/:call/:${row.call.id}`} title={'View Call contract details'}>
-                        {currencyFormat(callAsk)}
+                        {currencyFormat(callBid, 2)}
                     </Link>
                 </td>
                 <td>
                     <Link to={`/:${dateISO}/:${strike}/:call/:${row.call.id}`} title={'View Call contract details'}>
-                        {currencyFormat(callBid)}
+                        {currencyFormat(callAsk, 2)}
                     </Link>
                 </td>
                 <td className={scss.strikeCell}>
@@ -60,12 +60,12 @@ class ContractRow extends Component<Props> {
                 </td>
                 <td>
                     <Link to={`/:${dateISO}/:${strike}/:put/:${row.put.id}`} title={'View Put contract details'}>
-                        {currencyFormat(putBid)}
+                        {currencyFormat(putBid, 2)}
                     </Link>
                 </td>
                 <td>
                     <Link to={`/:${dateISO}/:${strike}/:put/:${row.put.id}`} title={'View Put contract details'}>
-                        {currencyFormat(putAsk)}
+                        {currencyFormat(putAsk, 2)}
                     </Link>
                 </td>
                 <td className={`open-interest`}>

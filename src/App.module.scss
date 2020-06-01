@@ -2,13 +2,14 @@
 
 .mainContainer {
     display: grid;
-    height: 100vh;
+    grid-template-rows: rem(60px) 1fr rem(40px);
     grid-template-columns: rem(500px) auto;
-    grid-template-rows: rem(80px) auto rem(40px);
     grid-template-areas:
             'header header'
             'contracts details'
             'footer footer';
+    height: 100%;
+    flex: 1 0 auto;
 }
 
 .appHeader {
@@ -17,17 +18,35 @@
 }
 
 .contractPanel {
+    position: relative;
     grid-area: contracts;
     background: $background-primary;
     border-right: rem(1px) solid $background-secondary;
 }
 
 .detailPanel {
+    position: relative;
     grid-area: details;
     background: $background-primary;
-    background: radial-gradient(ellipse at center, black 30%, $background-primary 80%, $background-secondary 100%);
-    border-left: rem(1px) solid $background-tertiary;
-    box-shadow: 0 0 rem(100px) $background-four inset;
+    background: linear-gradient(to bottom, $background-secondary, $background-primary);
+
+    &:empty {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &::after {
+            content: '';
+            display: inline-block;
+            width: rem(300px);
+            height: rem(100px);
+            max-width: 66%;
+            opacity: .4;
+            background: url('/ledgerX_black.png') center no-repeat;
+            background-size: contain;
+        }
+    }
+
 }
 
 .appFooter {
@@ -35,3 +54,102 @@
     background: $background-primary;
 }
 
+.connection {
+    &Status {
+        position: relative;
+        font-size: 10px;
+        color: $body-text-color;
+
+        &Text::after {
+            content: '';
+            display: inline-block;
+            position: relative;
+            top: rem(1.5px);
+            width: rem(10px);
+            height: rem(10px);
+            border-radius: rem(5px);
+            background: grey;
+            margin-left: rem(5px);
+
+        }
+
+        span {
+            text-transform: capitalize;
+        }
+    }
+
+    &healthy {
+        .connectionStatusText::after {
+            background: $profit-color;
+            box-shadow: 0 0 rem(10px) $profit-color;
+        }
+    }
+
+    &disconnected {
+        .connectionStatusText::after {
+            background: $loss-color;
+            box-shadow: 0 0 rem(10px) $loss-glow-color;
+        }
+    }
+
+    &errors{
+        .connectionStatusText::after {
+            background: $loss-color;
+            box-shadow: 0 0 rem(10px) $loss-glow-color;
+        }
+    }
+
+    &stalled{
+        .connectionStatusText::after {
+            background: $connection-stalled-color;
+            box-shadow: 0 0 rem(10px) $connection-stalled-color;
+        }
+    }
+}
+
+.connectButton {
+    width: auto;
+    padding: 0 rem(3px);
+    height: rem(14px);
+    font-size: rem(10px);
+    background: $connect-button-color;
+    color: $connect-button-text;
+    min-width: auto;
+
+    &Wrapper {
+        display: inline-block;
+    }
+}
+
+@media screen and (min-width: rem(769px)) and (max-width: rem(992px)) {
+    .mainContainer {
+        display: grid;
+        height: 100vh;
+        grid-template-columns: rem(380px) auto;
+        grid-template-rows: rem(80px) auto rem(40px);
+        grid-template-areas:
+                'header header'
+                'contracts details'
+                'footer footer';
+    }
+}
+
+@media screen and (max-width: rem(768px)) {
+    .mainContainer {
+        grid-template-columns: 100%;
+        grid-template-areas:
+                'header'
+                'contracts'
+                'footer';
+    }
+
+    .detailPanel:empty {
+        display: none;
+    }
+}
+
+@media screen and (max-width: rem(575px)) {
+    .mainContainer {
+        grid-template-rows: rem(40px) 1fr rem(30px);
+    }
+}

@@ -1,0 +1,34 @@
+@use '../../scss-global/component-init' as *;
+
+.container {
+    display: flex;
+    background: $background-tertiary;
+    justify-content: space-between;
+    align-items: center;
+    padding: rem(10px) rem(40px);
+}
+
+.sig {
+    font-size: 10px;
+    color: $body-text-color;
+    opacity: .4;
+
+    a {
+        color: $button-color-main;
+        text-decoration: none;
+    }
+}
+
+@media screen and (max-width: rem(768px)) {
+    .container {
+        padding: 0 rem(20px);
+        line-height: 1;
+    }
+}
+
+@media screen and (max-width: rem(575px)) {
+    .container {
+        padding: 0 rem(20px);
+        line-height: 1;
+    }
+}

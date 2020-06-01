@@ -1,0 +1,39 @@
+@use '../../scss-global/component-init' as *;
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to top, $background-secondary 0%, $background-primary 30%, $background-tertiary);
+}
+
+.logo {
+    width: 100%;
+    height: auto;
+
+    &Link {
+        display: block;
+        padding: rem(10px) rem(30px) 0;
+        width: rem(200px);
+    }
+}
+
+@media screen and (max-width: rem(768px)) {
+    .logo {
+        &Link {
+            display: block;
+            padding: rem(12px) rem(14px) 0;
+            width: rem(180px);
+        }
+    }
+}
+
+@media screen and (max-width: rem(575px)) {
+    .logo {
+        &Link {
+            display: block;
+            padding: rem(8px) rem(14px) 0;
+            width: rem(130px);
+        }
+    }
+}

@@ -1,0 +1,84 @@
+@use '../../scss-global/component-init' as *;
+
+.optionTypesRow {
+    width: 100%;
+    display: grid;
+    grid-template-columns: rem(204px) rem(16px) rem(60px) rem(204px) rem(16px);
+
+    th {
+        font-size: rem(16px);
+        font-weight: 300;
+        background: $background-five;
+        padding: rem(8px);
+        text-align: left;
+
+        &.strike {
+            border-left: rem(1px) solid $background-five;
+            background: $background-tertiary;
+        }
+    }
+}
+
+.headsRow {
+    background: $background-primary;
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    display: grid;
+    grid-template-columns: .75fr 1fr 1fr rem(60px) 1fr 1fr .75fr;
+}
+
+th.columnHead {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: rem(6px);
+    border-left: rem(1px) solid $background-secondary;
+    font-weight: 400;
+    font-size: rem(10px);
+    line-height: 1.1;
+    color: $date-header-text-color;
+
+    &:first-child {
+        border: none;
+    }
+
+    &.strike {
+        background: $background-tertiary;
+    }
+}
+
+@media screen and (min-width: rem(769px)) and (max-width: rem(992px)) {
+    .optionTypesRow {
+        grid-template-columns: .985fr rem(45px) rem(40px) 1.015fr rem(55px);
+    }
+
+    .headsRow {
+        grid-template-columns: rem(45px) .98fr .99fr rem(40px) 1.01fr 1.02fr rem(55px);
+    }
+}
+
+@media screen and (max-width: rem(768px)) {
+    .optionTypesRow {
+        grid-template-columns: 1fr rem(95px) rem(60px) 1fr rem(107px);
+    }
+
+    .headsRow {
+        grid-template-columns: rem(95px) 1fr 1fr rem(60px) 1fr 1fr rem(107px);
+    }
+
+    th.columnHead {
+        height: rem(22px);
+    }
+}
+
+@media screen and (max-width: rem(575px)) {
+    .optionTypesRow {
+        grid-template-columns: .985fr rem(45px) rem(40px) 1.015fr rem(55px);
+    }
+
+    .headsRow {
+        grid-template-columns: rem(45px) .98fr .99fr rem(40px) 1.01fr 1.02fr rem(55px);
+    }
+
+}

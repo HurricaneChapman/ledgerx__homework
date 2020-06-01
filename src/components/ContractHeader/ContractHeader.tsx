@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import scss from './ContractSortHeader.module.scss';
+import scss from './ContractHeader.module.scss';
 import ContractDateHeader from "../ContractDateHeader/ContractDateHeader";
 
 type Props = {
@@ -11,7 +11,7 @@ type DefaultProps = Readonly<typeof defaultProps>;
 const defaultProps = {
 };
 
-class ContractSortHeader extends PureComponent<Props> {
+class ContractHeader extends PureComponent<Props> {
     static defaultProps = defaultProps;
 
     render() {
@@ -27,20 +27,22 @@ class ContractSortHeader extends PureComponent<Props> {
                     <th>
                         Call options
                     </th>
+                    <th />
                     <th className={scss.strike}></th>
                     <th>
                         Put options
                     </th>
+                    <th />
                 </tr>
                 <tr className={`${scss.headsRow}`}>
                     <th className={scss.columnHead}>
                         Open interest
                     </th>
                     <th className={scss.columnHead}>
-                        Ask
+                        Bid
                     </th>
                     <th className={scss.columnHead}>
-                        Bid
+                        Ask
                     </th>
                     <th className={`${scss.columnHead} ${scss.strike}`}>
                         Strike
@@ -61,4 +63,4 @@ class ContractSortHeader extends PureComponent<Props> {
     }
 }
 
-export default ContractSortHeader;
+export default ContractHeader;
