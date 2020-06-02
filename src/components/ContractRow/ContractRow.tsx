@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import scss from './ContractRow.module.scss';
-import { currencyFormat, formatInterest } from "../../helper/formatters";
+import { currencyFormat } from "../../helper/formatters";
 import {booktop, contractsOfStrike} from "../../types";
-import {Link} from "react-router-dom";
+import ContractBlock from "../ContractBlock/ContractBlock";
 
 type Props = {
     row: contractsOfStrike,
@@ -13,6 +13,7 @@ type Props = {
 } & Partial<DefaultProps>
 
 type DefaultProps = Readonly<typeof defaultProps>;
+
 
 const defaultProps = {
     className: '' as string
@@ -30,9 +31,10 @@ class ContractRow extends Component<Props> {
                 call,
                 put,
                 dateString
-            }
+            },
         } = this;
-        const dateISO = new Date(parseInt(dateString)).toISOString(); // to make it slightly more human-readable
+
+        const dateISO = new Date(parseInt(dateString, 10)).toISOString(); // to make it slightly more human-readable
         const callBid = call && call.bid;
         const callAsk = call && call.ask;
         const putBid = put && put.bid;
@@ -40,39 +42,11 @@ class ContractRow extends Component<Props> {
 
         return (
             <tr className={`${scss.contractRow} ${className}`}>
-                <td className={`open-interest`}>
-                    <Link to={`/:${dateISO}/:${strike}/:call/:${row.call.id}`} title={'View Call contract details'}>
-                        {formatInterest(row.call.open_interest)}
-                    </Link>
-                </td>
-                <td>
-                    <Link to={`/:${dateISO}/:${strike}/:call/:${row.call.id}`} title={'View Call contract details'}>
-                        {currencyFormat(callBid, 2)}
-                    </Link>
-                </td>
-                <td>
-                    <Link to={`/:${dateISO}/:${strike}/:call/:${row.call.id}`} title={'View Call contract details'}>
-                        {currencyFormat(callAsk, 2)}
-                    </Link>
-                </td>
+                <ContractBlock bid={callBid} ask={callAsk} interest={row.call.open_interest} link={`/:${dateISO}/:${strike}/:call/:${row.call.id}`} contractType={'call'}/>
                 <td className={scss.strikeCell}>
                     {currencyFormat(strike, 0)}
                 </td>
-                <td>
-                    <Link to={`/:${dateISO}/:${strike}/:put/:${row.put.id}`} title={'View Put contract details'}>
-                        {currencyFormat(putBid, 2)}
-                    </Link>
-                </td>
-                <td>
-                    <Link to={`/:${dateISO}/:${strike}/:put/:${row.put.id}`} title={'View Put contract details'}>
-                        {currencyFormat(putAsk, 2)}
-                    </Link>
-                </td>
-                <td className={`open-interest`}>
-                    <Link to={`/:${dateISO}/:${strike}/:put/:${row.put.id}`} title={'View Put contract details'}>
-                        {formatInterest(row.put.open_interest)}
-                    </Link>
-                </td>
+                <ContractBlock bid={putBid} ask={putAsk} interest={row.put.open_interest} link={`/:${dateISO}/:${strike}/:put/:${row.put.id}`} contractType={'put'}/>
             </tr>
         );
     }

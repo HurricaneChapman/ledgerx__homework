@@ -12,6 +12,7 @@
     height: rem(40px);
     padding: 0 rem(20px);
     border: rem(1px) solid $background-six;
+    z-index: 1;
 
     .rv-discrete-color-legend-item {
         display: flex;
@@ -29,6 +30,18 @@
                 stroke-width: rem(4px);
             }
         }
+
+        &:nth-child(1) .rv-discrete-color-legend-item__color__path {
+            stroke: $graph-ask-line-color !important;
+        }
+
+        &:nth-child(2) .rv-discrete-color-legend-item__color__path {
+            stroke: $graph-EMA-line-color !important;
+        }
+
+        &:nth-child(3) .rv-discrete-color-legend-item__color__path {
+            stroke: $graph-bid-line-color !important;
+        }
     }
 }
 
@@ -44,13 +57,85 @@
         }
     }
 
-    &__series--line {
+    &__series--linemark {
         stroke-width: rem(1.5px);
         fill: none;
+
+        &:nth-of-type(1) .rv-xy-plot__series--line {
+            stroke: $graph-ask-line-color !important;
+        }
+
+        &:nth-of-type(2) .rv-xy-plot__series--line {
+            stroke: $graph-EMA-line-color !important;
+        }
+
+        &:nth-of-type(3) .rv-xy-plot__series--line {
+            stroke: $graph-bid-line-color !important;
+        }
+    }
+
+    &__series--mark {
+
     }
 
     &__grid-lines:first-of-type {
         stroke: black;
         opacity: .4;
+    }
+}
+
+.rv-crosshair {
+    position: absolute;
+
+    &__line {
+        border-left: rem(1px) solid $background-six;
+        width: 0;
+    }
+}
+
+.crosshairBody {
+    position: absolute;
+    top: 30%;
+    transform: translate(#{rem(10px)}, -50%);
+    width: rem(100px);
+    padding: rem(10px);
+
+    &Background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        border: rem(1px) solid $background-six;
+        background: $background-primary;
+        opacity: .85;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: rem(-6px);
+            height: rem(10px);
+            width: rem(10px);
+            border: rem(1px) solid $background-six;
+            border-width: 0 0 rem(1px) rem(1px);
+            background: $background-primary;
+            transform: translateY(-50%) rotate(45deg);
+        }
+    }
+
+    p {
+        position: relative;
+        font-size: rem(14px);
+        margin: rem(8px) 0;
+    }
+
+    .rv-crosshair__inner--left &{
+        right: 0;
+        transform: translate(#{rem(-10px)}, -50%);
+
+        &Background {
+            transform: rotate(180deg);
+        }
     }
 }

@@ -26,6 +26,7 @@ class App extends PureComponent<{}, AppState> {
     public bookshelf: bookshelf;
     public contractPromise: Promise<any> | undefined;
     public bookHeadPromise: Promise<any> | undefined;
+    private connectionTimer: ReturnType<typeof setTimeout> | null | undefined;
 
     constructor(props:{}) {
         super(props);
@@ -62,7 +63,7 @@ class App extends PureComponent<{}, AppState> {
         );
         this.bookHeadPromise.then(
             response => {
-                this.processBookTops(response.data)
+                this.processBookTops(response.data);
                 this.setState({booktopInit: true});
             }
         );
@@ -76,22 +77,39 @@ class App extends PureComponent<{}, AppState> {
         }
         this.socket = new WebSocket(`wss://${host}/api/ws`);
         this.socket.onopen = () => {
-            this.setState({connection: "healthy"})
+            this.setState({connection: "healthy"});
+            this.connectionTimer = setTimeout(() => {
+                this.setState({connection: 'stalled'});
+            }, 60000);
         };
+
         this.socket.onmessage = (event) => {
             const newBooktop:booktop = JSON.parse(event.data);
+
             if (newBooktop.type !== 'book_top') {
                 return;
             }
             this.processBookTops(newBooktop);
-            this.setState({connection: "healthy"});
+
+            if (this.state.connection !== 'healthy') {
+                this.setState({connection: "healthy"});
+            }
+
+            if (this.connectionTimer) {
+                clearTimeout(this.connectionTimer);
+                this.connectionTimer = setTimeout(() => {
+                    this.setState({connection: 'stalled'});
+                }, 60000);
+            }
         };
+
         this.socket.onerror = (event) => {
             console.error(event);
             this.setState({connection: "errors"})
         };
-        this.socket.onclose = (event) => {
-            console.log('DISCONNECTED', event)
+
+        this.socket.onclose = () => {
+            this.setState({connection: 'disconnected'});
         };
     }
 
@@ -105,7 +123,9 @@ class App extends PureComponent<{}, AppState> {
         for (let i = 0; i < response.length; i++) {
             switch (response[i].derivative_type) {
                 case 'options_contract':
-                    const date:number = new Date(response[i].date_exercise).getTime();
+                    // Safari and its inability to understand date strings require doing this the stupid way.
+                    const dateString = response[i].date_exercise.replace('+0000', 'Z').replace(' ', 'T');
+                    const date = new Date(dateString).getTime();
                     const strike:number = response[i].strike_price;
                     const type:string = response[i].type;
                     contracts[date] = contracts[date] ? contracts[date] : contracts[date] = {};
@@ -133,22 +153,27 @@ class App extends PureComponent<{}, AppState> {
             bookArray = booktops;
         }
         for (let i = 0; i < bookArray.length; i++) {
-            if (bookArray[i].clock === 0) {
+            if (bookArray[i].clock === 0 ) {
                 continue;
             }
+            const {
+                contract_id = 0
+            } = bookArray[i];
 
             // check first to see if this booktop refers to a btc swap
-            if (this.state.btcSwaps[bookArray[i].contract_id]){
+            if (this.state.btcSwaps[contract_id]){
                 //update BTC prices and continue
-                if (this.state.btcSwaps[bookArray[i].contract_id].active) {
+                if (this.state.btcSwaps[contract_id].active) {
                     this.setState({btcExchange: {ask: bookArray[i].ask, bid:bookArray[i].bid}});
                 }
                 continue;
             }
 
-            const {
-                contract_id
-            } = bookArray[i];
+            delete bookArray[i].type;
+            delete bookArray[i].contract_type;
+            delete bookArray[i].contract_id;
+            delete bookArray[i].clock;
+            bookArray[i].timestamp = Date.now();
 
             if (!this.bookshelf[contract_id]) {
                 this.bookshelf[contract_id] = {
@@ -162,8 +187,8 @@ class App extends PureComponent<{}, AppState> {
                 contract.min = Math.min(contract.min, bookArray[i].bid, bookArray[i].ask);
                 contract.max = Math.max(contract.max, bookArray[i].bid, bookArray[i].ask);
                 contract.history.append(bookArray[i]);
-                if (contract.history.length > 400) {
-                    // limit the history to 400 datapoints
+                if (contract.history.length > 200) {
+                    // limit the history to 200 datapoints
                     contract.history.removeHead();
                 }
             }

@@ -88,24 +88,35 @@ class ContractsByDate extends PureComponent<Props, State> {
     }
 
     renderRow({rows, booktops, dateString, btcExchange, hasShownBTC}: {rows:contractRow, booktops: Record<number, booktop>, dateString: string, btcExchange: btcExchange, hasShownBTC:{value:boolean}}) {
-        return (strikeKey: string): React.ReactNode => {
+        return (strikeKey: string, idx: number, arr: number[]): React.ReactNode => {
             const row = rows[strikeKey];
             const contracts = [row.call.id, row.put.id];
             const call = booktops[contracts[0]] || null;
             const put = booktops[contracts[1]] || null;
             const btcPrice = (btcExchange.ask + btcExchange.bid) / 2;
+            const strikeNum = parseInt(strikeKey, 10);
 
-            if (btcPrice < parseInt(strikeKey) && !hasShownBTC.value) {
+            if (btcPrice < strikeNum && !hasShownBTC.value) {
                 hasShownBTC.value = true;
                 return (
                     <React.Fragment key={strikeKey}>
                         <BitcoinPriceRow btcExchange={btcExchange} />
-                        <ContractRow row={row} strike={parseInt(strikeKey, 10)} call={call} put={put} dateString={dateString} />
+                        <ContractRow row={row} strike={strikeNum} call={call} put={put} dateString={dateString} />
                     </React.Fragment>
                 )
             }
 
-            return <ContractRow key={strikeKey} row={row} strike={parseInt(strikeKey, 10)} call={call} put={put} dateString={dateString} />
+            if (btcPrice > strikeNum && !hasShownBTC.value && idx === arr.length - 1) {
+                hasShownBTC.value = true;
+                return (
+                    <React.Fragment key={strikeKey}>
+                        <ContractRow row={row} strike={strikeNum} call={call} put={put} dateString={dateString} />
+                        <BitcoinPriceRow btcExchange={btcExchange} />
+                    </React.Fragment>
+                )
+            }
+
+            return <ContractRow key={strikeKey} row={row} strike={strikeNum} call={call} put={put} dateString={dateString} />
         }
     }
 
@@ -126,6 +137,8 @@ class ContractsByDate extends PureComponent<Props, State> {
             onTableScroll,
             getDateHeaderCoords
         } = this;
+
+        console.log(contracts);
 
         const Container: keyof React.ReactDOM = as || defaultProps.as; // a workaround for a perplexing typescript compile issue where the default prop value isn't being read.
         if (this.dates.length === 0) {

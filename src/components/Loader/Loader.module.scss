@@ -17,8 +17,8 @@
     width: 33%;
     padding-bottom: 33%;
     border: rem(3px) solid transparent;
-    border-top-color: var(--color1);
-    border-bottom-color: var(--color1);
+    border-top-color: $graph-bid-line-color;
+    border-bottom-color: $graph-bid-line-color;
     border-radius: 50%;
     z-index: 2;
     -webkit-animation: spin 2s linear infinite;
@@ -35,7 +35,7 @@
         right: 2%;
         border: rem(2px) solid transparent;
         z-index: 2;
-        border-top-color: $profit-color;
+        border-top-color: $graph-EMA-line-color;
         border-radius: 50%;
         -webkit-animation: spin 3s linear infinite;
         -moz-animation: spin 3s linear infinite;
@@ -52,14 +52,13 @@
         left: 5%;
         right: 5%;
         border: rem(1px) solid transparent;
-        border-top-color: $loss-color;
+        border-top-color: $graph-ask-line-color;
         z-index: 2;
         border-radius: 50%;
         -webkit-animation: spin 1.5s linear infinite;
         -moz-animation: spin 1.5s linear infinite;
         -o-animation: spin 1.5s linear infinite;
         animation: spin 1.5s linear infinite;
-
     }
 }
 

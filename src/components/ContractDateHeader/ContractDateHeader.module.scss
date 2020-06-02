@@ -4,7 +4,6 @@ tr.dateRow {
     position: relative;
     display: grid;
     grid-template-columns: 100%;
-    z-index: 2;
 
     &:not(:first-child) {
         border-top: rem(4px) solid $background-tertiary;

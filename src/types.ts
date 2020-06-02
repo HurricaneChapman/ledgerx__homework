@@ -39,10 +39,10 @@ export type contract = {
 export type booktop = {
     ask: number,
     bid: number,
-    contract_id: number,
-    contract_type: number,
-    clock: number,
-    type: string,
+    contract_id?: number,
+    contract_type?: number,
+    clock?: number,
+    type?: string,
     timestamp?: number
 }
 
