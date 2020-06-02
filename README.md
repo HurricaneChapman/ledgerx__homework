@@ -1,10 +1,10 @@
-#Welcome to my version of the LedgerX Live Trade Dashboard!
+# Welcome to my version of the LedgerX Live Trade Dashboard!
 
 Written with Typescript, React and love. And the occaisional assistance of a cat, who is not as good with javascript as she thinks she is, but she keeps trying.
 
 *Requires https, so when running it locally you're going to get a big scary security warning. Bypass it by going through "advanced" and saying you want to see the site anyway. Nothing scary is actually happening.*
 
-##Features:
+## Features:
 * Uses React Router to allow full back/forward and bookmarking functionality in the contract detail pages.
 * Live updating graphs on contract detail pages.
 * Responsive, tested on an Android phone.
@@ -12,7 +12,7 @@ Written with Typescript, React and love. And the occaisional assistance of a cat
 * Graphs include an exponential moving average that updates every time the contract data is refreshed. 
 * I hope you like blue.
 
-##Known quirks:
+## Known quirks:
 * Graphs rely on data collected since the most recent page load. This results in a lot of flat, boring lines. If you leave it open for a few minutes you will start to see some movement on some contracts, but most stay relatively flat. If we were graphing larger data sets, this would probably be a lot more interesting, and wouldn't hit the performance problem I saw with the constant data fetching.
 * Graphing library maybe isn't the best for a chart that updates data so frequently. Rapid state updates (ie several every few seconds) could be more performant.
 * Graphing library also doesn't play that well with typescript. 
