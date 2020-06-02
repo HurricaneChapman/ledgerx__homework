@@ -1,3 +1,29 @@
+Welcome to my version of the LedgerX Live Trade Dashboard!
+
+Written with Typescript, React and love. And the occaisional assistance of a cat, who is not as good with javascript as she thinks she is, but she keeps trying.
+
+Requires https, so when running it locally you're going to get a big scary security warning. Bypass it by going through "advanced" and saying you want to see the site anyway. Nothing scary is actually happening.
+
+Features:
+* Uses React Router to allow full back/forward and bookmarking functionality in the contract detail pages.
+* Live updating graphs on contract detail pages.
+* Responsive, tested on an Android phone.
+* Has the required current BTC price in the contract lists, adjusting its place in the order on the fly as the price updates.
+* Graphs include an exponential moving average that updates every time the contract data is refreshed. 
+* I hope you like blue.
+
+Known quirks:
+* Graphs rely on data collected since the most recent page load. This results in a lot of flat, boring lines. If you leave it open for a few minutes you will start to see some movement on some contracts, but most stay relatively flat. If we were graphing larger data sets, this would probably be a lot more interesting, and wouldn't hit the performance problem I saw with the constant data fetching.
+* Graphing library maybe isn't the best for a chart that updates data so frequently. Rapid state updates (ie several every few seconds) could be more performant.
+* Graphing library also doesn't play that well with typescript. 
+* Resizing in Safari with the details pane open can produce odd results that I didn't have time to debug. Works okay in other browsers, and fixes in Safari with a simple page reload.
+
+I learned a lot about options while figuring out what I was representing on this page, and watched the Bitcoin price go from under $9k to over $10k in a few days. Kind of eye-opening. 
+
+Enjoy.
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
