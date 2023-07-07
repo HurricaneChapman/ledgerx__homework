@@ -92,7 +92,7 @@
     "devDependencies": {
         "normalize-scss": "^7.0.1",
         "sass": "^1.26.5",
-        "stylelint": "^13.5.0",
+        "stylelint": "^15.10.1",
         "stylelint-scss": "^3.17.2"
     }
 }
